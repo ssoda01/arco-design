@@ -18,6 +18,7 @@ class ResizeObserverComponent extends React.Component<ResizeProps> {
     } else {
       this.createResizeObserver();
     }
+    console.log('222s');
   }
 
   componentDidUpdate() {

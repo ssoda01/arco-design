@@ -201,6 +201,7 @@ function TreeNode(props: PropsWithChildren<NodeProps>, ref) {
         </span>
         {checkable ? (
           <Checkbox
+            style={{ border: '2px solid blue' }}
             disabled={disableCheckbox || disabled}
             value={_key}
             indeterminate={props.indeterminated}
