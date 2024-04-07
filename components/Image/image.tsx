@@ -54,7 +54,6 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
     lazyload,
     ...restProps
   } = props;
-
   const getKeyboardEvents = useKeyboardEvent();
 
   const {
@@ -92,7 +91,7 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
 
   // Props passed directly into Preview component
   const availablePreviewProps = useMemo(() => {
-    return omit(previewProps, ['visible', 'defaultVisible', 'src', 'onVisibleChange']);
+    return omit(previewProps, ['visible', 'defaultVisible', 'src', 'onVisibleChange', 'wheelable']);
   }, [previewProps]);
 
   const prefixCls = getPrefixCls('image');
@@ -135,7 +134,6 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
     }
     onClick && onClick(e);
   }
-
   function togglePreviewVisible(newVisible) {
     previewProps.onVisibleChange && previewProps.onVisibleChange(newVisible, previewVisible);
     setPreviewVisible(newVisible);
@@ -244,6 +242,7 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
       {isLoaded && preview && (
         <ImagePreview
           visible={previewVisible}
+          wheelable={wheelable}
           src={previewSrc}
           {...availablePreviewProps}
           onVisibleChange={togglePreviewVisible}

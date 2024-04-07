@@ -46,6 +46,7 @@ export type ImagePreviewHandle = {
 
 const defaultProps: Partial<ImagePreviewProps> = {
   maskClosable: true,
+  wheelable: true,
   closable: true,
   breakPoint: 316,
   actionsLayout: [
@@ -75,6 +76,7 @@ function Preview(baseProps: ImagePreviewProps, ref) {
     defaultVisible,
     maskClosable,
     closable,
+    wheelable,
     breakPoint,
     actions,
     actionsLayout,
@@ -454,7 +456,7 @@ function Preview(baseProps: ImagePreviewProps, ref) {
   const renderImage = () => {
     const image = (
       <img
-        onWheel={onWheelZoom}
+        onWheel={wheelable ? onWheelZoom : undefined}
         ref={refImage}
         className={cs(imgClassName, `${previewPrefixCls}-img`, {
           [`${previewPrefixCls}-img-moving`]: moving,

@@ -143,6 +143,11 @@ export interface ImagePreviewProps {
    * @zh 额外操作，[ImagePreviewActionProps](#imagepreviewactionprops)
    * @en Extra operations, [ImagePreviewActionProps](#imagepreviewactionprops)
    */
+  wheelable?: boolean;
+  /**
+   * @zh 是否允许鼠标滚轮，[ImagePreviewActionProps](#imagepreviewactionprops)
+   * @en Extra operations, [ImagePreviewActionProps](#imagepreviewactionprops)
+   */
   actions?: ImagePreviewActionProps[];
   /**
    * @zh 控制条的布局
